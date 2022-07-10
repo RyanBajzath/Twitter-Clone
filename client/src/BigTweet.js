@@ -4,7 +4,7 @@ import { FiHeart, FiMessageCircle, FiDownload, FiRepeat } from "react-icons/fi";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 
-const Tweet = ({ tweet }) => {
+const BigTweet = ({ tweet }) => {
   // console.log(tweet);
   const {
     status,
@@ -14,14 +14,9 @@ const Tweet = ({ tweet }) => {
   } = tweet;
   const date = moment(timestamp).format("MMM Do ");
 
-  let history = useHistory();
-  const handClick = () => {
-    history.push(`/tweet/${id}`);
-  };
-
   return (
     <>
-      <Wrapper onClick={handClick}>
+      <Wrapper>
         <img src={avatarSrc} />
         <p>{displayName}</p>
         <p>@{handle}</p>
@@ -50,4 +45,4 @@ const Tweet = ({ tweet }) => {
 const Wrapper = styled.div`
   outline: red 5px solid;
 `;
-export default Tweet;
+export default BigTweet;
