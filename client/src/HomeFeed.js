@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import TextBox from "./TextBox";
 import Tweet from "./Tweet";
 
 const HomeFeed = () => {
@@ -21,7 +22,7 @@ const HomeFeed = () => {
 
   return (
     <div>
-      <input type="text" name="name" placeholder="write stuff here" />
+      <TextBox />
       {tweetsIds.map((id) => {
         return <Tweet tweet={tweets[id]} />;
       })}
