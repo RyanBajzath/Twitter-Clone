@@ -3,6 +3,9 @@ import { CurrentUserContext } from "./CurrentUserContext";
 
 const TextBox = () => {
   const [input, setInput] = useState("");
+  const [wordCount, setWordCount] = useState(280);
+
+  //
 
   const handleChange = (e) => {
     console.log(e.target.value);
@@ -43,10 +46,15 @@ const TextBox = () => {
         <input
           onChange={(e) => {
             handleChange(e);
+            setWordCount(280 - e.target.value.length);
           }}
         />
       </div>
-      <button onClick={handleSubmit}>Meow</button>
+      <span>{wordCount}</span>
+      <button onClick={handleSubmit} disabled={wordCount < 0 ? true : false}>
+        {/* Use same tech above for styling */}
+        Meow
+      </button>
     </div>
   );
 };

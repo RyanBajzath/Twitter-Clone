@@ -9,9 +9,13 @@
 <!-- 5. Posting a new tweet
    I made a post but not sure how to get the info into homefeed -->
 
-6. Click targets
-7. Character limit
-8. Error screens
+<!-- 6. Click targets -->
+
+<!-- 7. Character limit -->
+
+<!-- 8. Error screens -->
    <!-- 9. Loading states -->
    <!-- 10. Time displays -->
+
 9. Style
+10. loading

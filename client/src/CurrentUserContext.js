@@ -7,8 +7,6 @@ export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [status, setStatus] = useState("loading");
 
-  //useHistory
-
   useEffect(() => {
     fetch("/api/me/profile")
       .then((res) => res.json())
@@ -18,6 +16,10 @@ export const CurrentUserProvider = ({ children }) => {
         setStatus("idle");
         // console.log(data);
         // console.log(setStatus("idle"));
+      })
+      .catch((error) => {
+        console.log(error);
+        setStatus("error");
       });
   }, []);
 

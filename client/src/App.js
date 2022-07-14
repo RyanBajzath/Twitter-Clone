@@ -8,13 +8,17 @@ import Notifications from "./Notifications";
 import Profile from "./Profile";
 import Sidebar from "./Sidebar";
 import TweetDetails from "./TweetDetails";
+import Error from "./Error";
 
 const App = () => {
   const { CurrentUser, status } = useContext(CurrentUserContext);
   // console.log(useContext(CurrentUserContext));
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return <div>Loading...test</div>;
+  }
+  if (status === "error") {
+    return <Error />;
   }
   return (
     <div>
@@ -35,6 +39,9 @@ const App = () => {
           </Route>
           <Route path="/profile/:profileId">
             <Profile />
+          </Route>
+          <Route path="*">
+            <Error />
           </Route>
         </Switch>
       </Router>

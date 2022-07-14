@@ -8,7 +8,7 @@ import {
   FiToggleLeft,
 } from "react-icons/fi";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 const Tweet = ({ tweet }) => {
   console.log(tweet);
@@ -62,11 +62,23 @@ const Tweet = ({ tweet }) => {
   return (
     <>
       <Wrapper>
-        <div onClick={handClick}>
+        <div
+          onClick={(e) => {
+            handClick();
+          }}
+        >
           <img src={avatarSrc} />
-          <p>{displayName}</p>
-          <p>@{handle}</p>
+          <div
+            onClick={(e) => {
+              e.stopPropagation();
+              history.push(`/profile/${handle}`);
+            }}
+          >
+            <p>{displayName}</p>
+            <p>@{handle}</p>
+          </div>
           <p>{status}</p>
+
           <p>{date}</p>
           {tweet.media.length > 0 && (
             <img src={tweet.media[0]?.url} alt="img" />
