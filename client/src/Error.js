@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Error = ({ message }) => {
   return (
     <Wrapper>
-      <FaBomb />
+      <FaBomb size={50} />
       <h1>An unknown error has occured</h1>
       {/* <span>Please try refreshing the page, or </span> */}
       <span>
