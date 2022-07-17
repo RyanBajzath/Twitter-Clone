@@ -82,8 +82,8 @@ const Tweet = ({ tweet }) => {
             }}
           >
             <DisplayName>{displayName}</DisplayName>
-            <span>@{handle}</span>
-            <span>{date}</span>
+            <StyledHandle>@{handle}</StyledHandle>
+            <StyledDate>{date}</StyledDate>
           </div>
           <p>{status}</p>
 
@@ -129,6 +129,14 @@ const Wrapper = styled.div`
   margin-top: 30px;
   /* box-shadow: 10px 10px; */
   margin-left: 350px;
+`;
+
+const StyledHandle = styled.span`
+  margin-left: 10px;
+`;
+
+const StyledDate = styled.span`
+  margin-left: 10px;
 `;
 
 const Avatar = styled.img`

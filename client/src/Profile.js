@@ -38,6 +38,11 @@ const Profile = () => {
       <Wrapper>
         <BannerImg src={profile.bannerSrc} />
         <Avatar src={profile.avatarSrc} />
+
+        <FollowedSpan>
+          {profile.isBeingFollowedByYou ? `Follwed` : `Not following`}
+        </FollowedSpan>
+
         <DisplayName>{profile.displayName}</DisplayName>
         {/* {profile.isFollowingYou? console.log("yes")} */}
         <span>@{profile.handle}</span>
@@ -87,6 +92,19 @@ const BannerImg = styled.img`
   /* position: absolute; */
   width: 100%;
   z-index: 0;
+`;
+
+const FollowedSpan = styled.span`
+  margin-left: 200px;
+  float: right;
+  background-color: hsl(258deg, 100%, 50%);
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 16px;
+  /* margin-top: -10px; */
 `;
 
 const Wrapper = styled.div`

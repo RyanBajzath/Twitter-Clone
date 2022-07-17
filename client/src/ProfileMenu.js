@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Tweet from "./Tweet";
+import { CircularProgress } from "@mui/material";
 
 const ProfileMenu = ({ handle }) => {
   const [tweets, setTweets] = useState(null);
@@ -64,7 +65,9 @@ const ProfileMenu = ({ handle }) => {
                 return <Tweet tweet={tweets[id]} key={id} />;
               })
             ) : (
-              <div>loading...</div>
+              <div>
+                <CircularProgress />
+              </div>
             )}
           </div>
         )}

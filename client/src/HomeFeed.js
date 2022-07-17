@@ -3,6 +3,7 @@ import TextBox from "./TextBox";
 import Tweet from "./Tweet";
 import { CircularProgress } from "@mui/material";
 import Error from "./Error";
+import styled from "styled-components";
 
 const HomeFeed = () => {
   const [tweets, setTweets] = useState(null);
@@ -48,9 +49,9 @@ const HomeFeed = () => {
 
   if (status === "loading") {
     return (
-      <div>
+      <StyledDiv>
         <CircularProgress />
-      </div>
+      </StyledDiv>
     );
   }
 
@@ -64,4 +65,5 @@ const HomeFeed = () => {
   );
 };
 
+const StyledDiv = styled.div``;
 export default HomeFeed;

@@ -102,7 +102,7 @@ const Wrapper = styled.div`
   padding-left: 5px;
 `;
 const StyledButton = styled.button`
-  background-color: purple;
+  background-color: hsl(258deg, 100%, 50%);
   color: white;
   outline: none;
   border-radius: 16px;
