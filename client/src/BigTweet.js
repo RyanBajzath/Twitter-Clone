@@ -50,6 +50,17 @@ const BigTweet = ({ tweet }) => {
         <StyledDate>{date}</StyledDate>
         <ButtonWrapper>
           <StyledButton>
+            <FiMessageCircle />
+          </StyledButton>
+          <StyledButton>
+            <FiRepeat
+              onClick={(e) => {
+                handleRetweet(e);
+              }}
+            />
+            <span>{_numRetweets}</span>
+          </StyledButton>
+          <StyledButton>
             <FiHeart
               //on click to change state
               onClick={(e) => {
@@ -63,18 +74,7 @@ const BigTweet = ({ tweet }) => {
             <span>{_numLikes}</span>
           </StyledButton>
           <StyledButton>
-            <FiMessageCircle />
-          </StyledButton>
-          <StyledButton>
-            <FiDownload />
-          </StyledButton>
-          <StyledButton>
-            <FiRepeat
-              onClick={(e) => {
-                handleRetweet(e);
-              }}
-            />
-            <span>{_numRetweets}</span>
+            <FiDownload size={30} />
           </StyledButton>
         </ButtonWrapper>
       </Wrapper>
