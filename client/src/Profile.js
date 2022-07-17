@@ -6,6 +6,9 @@ import { CurrentUserContext } from "./CurrentUserContext";
 import Error from "./Error";
 import styled from "styled-components";
 import { CircularProgress } from "@mui/material";
+import { FiCalendar } from "react-icons/fi";
+import { GrLocation } from "react-icons/gr";
+import moment from "moment";
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
@@ -29,7 +32,7 @@ const Profile = () => {
   if (!profile) {
     return <CircularProgress />;
   }
-
+  const date = moment(profile.joined).format("MMM Do ");
   return (
     <>
       <Wrapper>
@@ -42,34 +45,63 @@ const Profile = () => {
           {profile.isFollowingYou ? `Follwing you` : `Not following you`}
         </FollowingSpan>
         <p>{profile.bio}</p>
-        <span>{profile.location}</span>
-        <span> joined {profile.joined}</span>
-        <div>
-          <span>{profile.numFollowing} following</span>
-          <span>{profile.numFollowers} followers</span>
-        </div>
+        <span>
+          <GrLocation />
+
+          {profile.location}
+        </span>
+        <span>
+          {" "}
+          <StyledJoined>
+            <FiCalendar /> joined {date}
+          </StyledJoined>
+        </span>
+        <FollowerWrap>
+          <StyledFollowing>
+            <Bold>{profile.numFollowing} </Bold>following
+          </StyledFollowing>
+          <StyledFollowers>
+            <Bold>{profile.numFollowers}</Bold> followers
+          </StyledFollowers>
+        </FollowerWrap>
       </Wrapper>
       <ProfileMenu handle={profile.handle} />
     </>
   );
 };
+const Bold = styled.span`
+  font-weight: bold;
+`;
+const StyledFollowing = styled.p`
+  /* margin-left: 100px; */
+`;
+const StyledFollowers = styled.p`
+  margin-left: 50px;
+`;
+const FollowerWrap = styled.div`
+  margin-top: 10px;
+  display: flex;
+`;
 
 const BannerImg = styled.img`
   /* position: absolute; */
   width: 100%;
+  z-index: 0;
 `;
 
 const Wrapper = styled.div`
-  margin-left: 250px;
+  margin-left: 300px;
   /* position: absolute; */
   width: 50vw;
 `;
 
 const Avatar = styled.img`
-  width: 100px;
+  z-index: 1;
+  width: 125px;
   height: auto;
   border-radius: 50%;
-  float: left;
+  /* float: left; */
+  margin-top: -75px;
 `;
 const DisplayName = styled.p`
   font-weight: bold;
@@ -79,6 +111,9 @@ const FollowingSpan = styled.span`
   margin-left: 10px;
   background-color: #c0c0c0;
   opacity: 80%;
+`;
+const StyledJoined = styled.span`
+  margin-left: 20px;
 `;
 
 export default Profile;

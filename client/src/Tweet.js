@@ -124,7 +124,8 @@ const Tweet = ({ tweet }) => {
 
 const Wrapper = styled.div`
   /* outline: black 2px solid; */
-  width: 50vw;
+  /* width: 50vw; */
+  max-width: 50vw;
   margin-top: 30px;
   /* box-shadow: 10px 10px; */
   margin-left: 350px;

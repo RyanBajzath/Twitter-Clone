@@ -118,6 +118,8 @@ const WordCount = styled.span`
 const StyledInput = styled.input`
   height: 10vh;
   width: 40vw;
+  border: none;
+  outline: none;
   /* outline: px; */
   /* margin-top: -100px; */
   /* position: absolute; */

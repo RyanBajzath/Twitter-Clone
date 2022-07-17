@@ -86,6 +86,7 @@ const Wrapper = styled.div`
 
 const Avatar = styled.img`
   width: 50px;
+
   height: auto;
   border-radius: 50%;
   float: left;
