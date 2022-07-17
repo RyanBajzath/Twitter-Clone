@@ -93,20 +93,7 @@ const Tweet = ({ tweet }) => {
         </div>
         <ButtonWrapper>
           <StyledButton>
-            <FiHeart
-              //on click to change state
-              onClick={(e) => {
-                handleLike(e);
-              }}
-            />
-
-            <span>{_numLikes}</span>
-          </StyledButton>
-          <StyledButton>
             <FiMessageCircle />
-          </StyledButton>
-          <StyledButton>
-            <FiDownload />
           </StyledButton>
           <StyledButton>
             <FiRepeat
@@ -115,6 +102,22 @@ const Tweet = ({ tweet }) => {
               }}
             />
             <span>{_numRetweets}</span>
+          </StyledButton>
+          <StyledButton>
+            <FiHeart
+              //on click to change state
+              onClick={(e) => {
+                handleLike(e);
+              }}
+              style={{
+                color: _numLikes > 0 && "red",
+              }}
+            />
+
+            <span>{_numLikes}</span>
+          </StyledButton>
+          <StyledButton>
+            <FiDownload />
           </StyledButton>
         </ButtonWrapper>
       </Wrapper>

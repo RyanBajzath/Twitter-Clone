@@ -55,6 +55,9 @@ const BigTweet = ({ tweet }) => {
               onClick={(e) => {
                 handleLike(e);
               }}
+              style={{
+                color: _numLikes > 0 && "red",
+              }}
             />
 
             <span>{_numLikes}</span>
