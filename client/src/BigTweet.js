@@ -34,7 +34,7 @@ const BigTweet = ({ tweet }) => {
     // console.log(_numRetweets);
   };
 
-  const date = moment(tweet?.timestamp).format("MMM Do ");
+  const date = moment(tweet?.timestamp).format(" h:mm a MMMM Do YYYY, ");
 
   return (
     <>
@@ -47,7 +47,7 @@ const BigTweet = ({ tweet }) => {
         {tweet?.media?.length > 0 && (
           <Photo src={tweet.media[0]?.url} alt="img" />
         )}
-        <StyledDate>{date}</StyledDate>
+        <StyledDate>{date} Critter web app</StyledDate>
         <ButtonWrapper>
           <StyledButton>
             <FiMessageCircle />
