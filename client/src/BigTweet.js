@@ -74,7 +74,7 @@ const BigTweet = ({ tweet }) => {
             <span>{_numLikes}</span>
           </StyledButton>
           <StyledButton>
-            <FiDownload size={30} />
+            <FiDownload />
           </StyledButton>
         </ButtonWrapper>
       </Wrapper>

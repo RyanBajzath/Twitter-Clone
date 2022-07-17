@@ -14,7 +14,7 @@ const HomeFeed = () => {
   const [postedTweet, setPostedTweet] = useState("");
 
   useEffect(() => {
-    if (status === null) {
+    if (tweets === null) {
       setStatus("loading");
     }
     // console.log(tweets);

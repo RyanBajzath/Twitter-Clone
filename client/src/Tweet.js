@@ -32,6 +32,8 @@ const Tweet = ({ tweet }) => {
   const [_isRetweeted, setIsRetweeted] = useState(isRetweeted);
   const [_numRetweets, setNumRetweets] = useState(numRetweets);
 
+  const [_status, _setStatus] = useState("idle");
+
   let history = useHistory();
   const handClick = () => {
     history.push(`/tweet/${id}`);
