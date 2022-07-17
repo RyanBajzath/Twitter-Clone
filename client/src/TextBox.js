@@ -2,10 +2,12 @@ import { style } from "@mui/system";
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { CurrentUserContext } from "./CurrentUserContext";
+import Error from "./Error";
 
 const TextBox = ({ setPostedTweet }) => {
   const [input, setInput] = useState("");
   const [wordCount, setWordCount] = useState(280);
+  const [status, setStatus] = useState("idle");
 
   const handleChange = (e) => {
     console.log(e.target.value);
@@ -35,12 +37,15 @@ const TextBox = ({ setPostedTweet }) => {
       // .then(() => setInput(""))
       .catch((error) => {
         console.log(error);
+        setStatus("error");
       });
   };
 
   const { currentUser } = useContext(CurrentUserContext);
   //   console.log(currentUser);
-  return (
+  return status === "error" ? (
+    <Error message="Try reposting your tweet" />
+  ) : (
     <Wrapper>
       <h2>Home</h2>
       <div>

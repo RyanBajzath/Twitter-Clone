@@ -28,7 +28,7 @@ const HomeFeed = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         // const { tweetsById, tweetIds } = data;
 
         setTweets(data?.tweetsById); //object
@@ -41,7 +41,7 @@ const HomeFeed = () => {
   if (status === "error") {
     return (
       <div>
-        <Error />
+        <Error message="please come back to the HomeFeed later :)" />
       </div>
     );
   }

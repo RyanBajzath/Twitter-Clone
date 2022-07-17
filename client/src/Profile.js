@@ -22,7 +22,7 @@ const Profile = () => {
   }, [profileId]);
 
   if (status === "error") {
-    return <Error />;
+    return <Error message="Please come back to the profile later" />;
   }
   // console.log(profile);
   // not really sure how this works but it seems to fix my empty page ... Need to look more into this later.

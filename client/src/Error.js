@@ -2,7 +2,7 @@ import React from "react";
 import { FaBomb } from "react-icons/fa";
 import styled from "styled-components";
 
-const Error = () => {
+const Error = ({ message }) => {
   return (
     <Wrapper>
       <FaBomb />
@@ -12,6 +12,7 @@ const Error = () => {
         Please try refreshing the page, or
         <a href="#"> contact support </a> , if the problem continues.
       </span>
+      <p>{message}</p>
     </Wrapper>
   );
 };

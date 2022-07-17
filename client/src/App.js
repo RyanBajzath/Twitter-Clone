@@ -43,7 +43,7 @@ const App = () => {
             <Profile />
           </Route>
           <Route path="*">
-            <Error />
+            <Error message="please try again" />
           </Route>
         </Switch>
       </Router>

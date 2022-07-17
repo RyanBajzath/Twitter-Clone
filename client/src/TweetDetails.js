@@ -40,7 +40,7 @@ const TweetDetails = () => {
   if (status === "error") {
     return (
       <div>
-        <Error />
+        <Error message="please come back to the specific Tweet later :)" />
       </div>
     );
   }
