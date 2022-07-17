@@ -53,7 +53,10 @@ const TextBox = ({ setPostedTweet }) => {
           }}
         />
         <WordCount
-        // {wordCount < 80 ? style={ color: "red" }:style={ color: "red" }}
+          // {wordCount < 55 ? style={ color: "red" }:style={ color: "red" }}
+          style={{
+            color: wordCount < 0 ? "red" : wordCount < 55 ? "yellow" : "grey", //if elseif else kinda
+          }}
         >
           {wordCount}
         </WordCount>
