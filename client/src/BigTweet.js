@@ -34,7 +34,7 @@ const BigTweet = ({ tweet }) => {
     // console.log(_numRetweets);
   };
 
-  const date = moment(tweet?.timestamp).format(" h:mm a MMMM Do YYYY, ");
+  const date = moment(tweet?.timestamp).format(" h:mm a MMMM Do YYYY ");
 
   return (
     <>
