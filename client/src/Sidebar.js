@@ -28,7 +28,7 @@ const Sidebar = () => {
         Bookmarks
       </StyledLink>
       {/* <StyledLink to="/tweet/:tweetId"></StyledLink> */}
-      <button>meow</button>
+      <StyledButton>meow</StyledButton>
     </SidebarContainer>
   );
 };
@@ -50,10 +50,23 @@ const StyledLink = styled(NavLink)`
 `;
 
 const SidebarContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   margin-left: 10vw;
   text-decoration: none;
+  /* display: inline-block; */
+  float: left;
+`;
+
+const StyledButton = styled.button`
+  background-color: purple;
+  color: white;
+  outline: none;
+  border-radius: 16px;
+  /* margin-left: 45vw; */
+  border: none;
+  padding: 8px;
+  width: 100px;
 `;
 
 export default Sidebar;

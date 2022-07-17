@@ -17,13 +17,14 @@ const App = () => {
   if (status === "loading") {
     return <div>Loading...test</div>;
   }
-  if (status === "error") {
-    return <Error />;
-  }
+  // if (status === "error") {
+  //   return <Error />;
+  // }
   return (
     <div>
       <Router>
         <Sidebar />
+
         <Switch>
           <Route exact path="/">
             <HomeFeed />

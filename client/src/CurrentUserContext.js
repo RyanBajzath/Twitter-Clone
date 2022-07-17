@@ -9,6 +9,7 @@ export const CurrentUserProvider = ({ children }) => {
 
   useEffect(() => {
     fetch("/api/me/profile")
+      // done
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

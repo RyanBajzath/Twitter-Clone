@@ -2,27 +2,55 @@ import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { Routes, Route, useParams } from "react-router-dom";
 import BigTweet from "./BigTweet";
+import Error from "./Error";
+import { CircularProgress } from "@mui/material";
 
 import { FiHeart, FiMessageCircle, FiDownload, FiRepeat } from "react-icons/fi";
 
 const TweetDetails = () => {
   const [tweetDetails, setTweetDetails] = useState(null);
+  const [status, setStatus] = useState("idle");
+
   //useParams get data from URL
   let { tweetId } = useParams();
   // console.log(useParams());
 
   useEffect(() => {
     // /api/tweet/:tweetId
+    setStatus("loading");
     fetch(`/api/tweet/${tweetId}`)
-      .then((res) => res.json())
+      .then((res) => {
+        // res.json();
+        if (!res.ok) {
+          setStatus("error");
+          return;
+        }
+        setStatus("idle");
+        return res.json();
+      })
       .then((data) => {
-        setTweetDetails(data.tweet);
+        setTweetDetails(data?.tweet);
         // console.log(data);
+      })
+      .catch((e) => {
+        setStatus("error");
       });
   }, []);
 
-  if (!tweetDetails) {
-    return <div>Loading...</div>;
+  if (status === "error") {
+    return (
+      <div>
+        <Error />
+      </div>
+    );
+  }
+
+  if (status === "loading") {
+    return (
+      <div>
+        <CircularProgress />
+      </div>
+    );
   }
   console.log(tweetDetails);
 

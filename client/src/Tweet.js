@@ -11,7 +11,7 @@ import styled from "styled-components";
 import { NavLink, useHistory } from "react-router-dom";
 
 const Tweet = ({ tweet }) => {
-  console.log(tweet);
+  // console.log(tweet);
   const {
     isLiked,
     numLikes,
@@ -67,25 +67,25 @@ const Tweet = ({ tweet }) => {
             handClick();
           }}
         >
-          <img src={avatarSrc} />
+          <Avatar src={avatarSrc} />
           <div
             onClick={(e) => {
               e.stopPropagation();
               history.push(`/profile/${handle}`);
             }}
           >
-            <p>{displayName}</p>
-            <p>@{handle}</p>
+            <DisplayName>{displayName}</DisplayName>
+            <span>@{handle}</span>
+            <span>{date}</span>
           </div>
           <p>{status}</p>
 
-          <p>{date}</p>
           {tweet.media.length > 0 && (
-            <img src={tweet.media[0]?.url} alt="img" />
+            <Photo src={tweet.media[0]?.url} alt="img" />
           )}
         </div>
-        <div>
-          <button>
+        <ButtonWrapper>
+          <StyledButton>
             <FiHeart
               //on click to change state
               onClick={(e) => {
@@ -94,28 +94,58 @@ const Tweet = ({ tweet }) => {
             />
 
             <span>{_numLikes}</span>
-          </button>
-          <button>
+          </StyledButton>
+          <StyledButton>
             <FiMessageCircle />
-          </button>
-          <button>
+          </StyledButton>
+          <StyledButton>
             <FiDownload />
-          </button>
-          <button>
+          </StyledButton>
+          <StyledButton>
             <FiRepeat
               onClick={(e) => {
                 handleRetweet(e);
               }}
             />
             <span>{_numRetweets}</span>
-          </button>
-        </div>
+          </StyledButton>
+        </ButtonWrapper>
       </Wrapper>
     </>
   );
 };
 
 const Wrapper = styled.div`
-  outline: red 5px solid;
+  /* outline: black 2px solid; */
+  width: 50vw;
+  margin-top: 30px;
+  /* box-shadow: 10px 10px; */
+  margin-left: 250px;
+`;
+
+const Avatar = styled.img`
+  width: 70px;
+  height: auto;
+  border-radius: 50%;
+  float: left;
+`;
+
+const Photo = styled.img`
+  width: 50vw;
+  border-radius: 8px;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+
+  justify-content: space-around;
+`;
+
+const StyledButton = styled.button`
+  border: none;
+`;
+
+const DisplayName = styled.span`
+  font-weight: bold;
 `;
 export default Tweet;

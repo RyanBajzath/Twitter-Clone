@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 import Tweet from "./Tweet";
 
 const ProfileMenu = ({ handle }) => {
@@ -28,39 +29,39 @@ const ProfileMenu = ({ handle }) => {
 
   return (
     <div>
-      <div>
-        <button
+      <Wrapper>
+        <StyledButton
           id="tweets"
           onClick={(event) => {
             handleMenuSwitch(event);
           }}
         >
           Tweets
-        </button>
-        <button
+        </StyledButton>
+        <StyledButton
           id="media"
           onClick={(event) => {
             handleMenuSwitch(event);
           }}
         >
           Media
-        </button>
-        <button
+        </StyledButton>
+        <StyledButton
           id="likes"
           onClick={(event) => {
             handleMenuSwitch(event);
           }}
         >
           Likes
-        </button>
-      </div>
+        </StyledButton>
+      </Wrapper>
       <div>
         {/* conditional rendering */}
         {button === "tweets" && (
           <div>
             {tweetsIds ? (
               tweetsIds.map((id) => {
-                return <Tweet tweet={tweets[id]} />;
+                return <Tweet tweet={tweets[id]} key={id} />;
               })
             ) : (
               <div>loading...</div>
@@ -71,5 +72,17 @@ const ProfileMenu = ({ handle }) => {
     </div>
   );
 };
+
+const StyledButton = styled.button`
+  border: none;
+`;
+
+const Wrapper = styled.div`
+  margin-left: 250px;
+  display: flex;
+  justify-content: space-around;
+  width: 50vw;
+  margin-top: 20px;
+`;
 
 export default ProfileMenu;

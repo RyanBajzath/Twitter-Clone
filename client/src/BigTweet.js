@@ -6,23 +6,21 @@ import { useHistory } from "react-router-dom";
 
 const BigTweet = ({ tweet }) => {
   // console.log(tweet);
-  const {
-    status,
-    timestamp,
-    id,
-    author: { avatarSrc, displayName, handle, bannerSrc },
-  } = tweet;
-  const date = moment(timestamp).format("MMM Do ");
+
+  const date = moment(tweet?.timestamp).format("MMM Do ");
 
   return (
     <>
       <Wrapper>
-        <img src={avatarSrc} />
-        <p>{displayName}</p>
-        <p>@{handle}</p>
-        <p>{status}</p>
-        <p>{date}</p>
-        {tweet.media.length > 0 && <img src={tweet.media[0]?.url} alt="img" />}
+        <Avatar src={tweet?.author?.avatarSrc} />
+        <DisplayName>{tweet?.author?.displayName}</DisplayName>
+        <p>@{tweet?.author?.handle}</p>
+        <SytledStatus>{tweet?.status}</SytledStatus>
+
+        {tweet?.media?.length > 0 && (
+          <Photo src={tweet.media[0]?.url} alt="img" />
+        )}
+        <StyledDate>{date}</StyledDate>
         <div>
           <button>
             <FiHeart />
@@ -44,5 +42,27 @@ const BigTweet = ({ tweet }) => {
 
 const Wrapper = styled.div`
   outline: red 5px solid;
+`;
+
+const Avatar = styled.img`
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+  float: left;
+`;
+const DisplayName = styled.span`
+  font-weight: bold;
+`;
+const Photo = styled.img`
+  width: 70vw;
+  border-radius: 8px;
+`;
+
+const SytledStatus = styled.p`
+  font-size: 25px;
+`;
+
+const StyledDate = styled.p`
+  margin-left: 200px;
 `;
 export default BigTweet;
