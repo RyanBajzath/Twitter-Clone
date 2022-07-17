@@ -20,6 +20,7 @@ const Tweet = ({ tweet }) => {
     status,
     timestamp,
     id,
+    retweetFrom,
     author: { avatarSrc, displayName, handle, bannerSrc },
   } = tweet;
   const date = moment(timestamp).format("MMM Do ");
@@ -62,6 +63,12 @@ const Tweet = ({ tweet }) => {
   return (
     <>
       <Wrapper>
+        {retweetFrom && (
+          <StyledRetweetWrap>
+            <FiRepeat />
+            <p>{retweetFrom.handle} retweeted</p>
+          </StyledRetweetWrap>
+        )}
         <div
           onClick={(e) => {
             handClick();
@@ -148,5 +155,11 @@ const StyledButton = styled.button`
 
 const DisplayName = styled.span`
   font-weight: bold;
+`;
+
+const StyledRetweetWrap = styled.div`
+  display: flex;
+  align-items: center;
+  color: grey;
 `;
 export default Tweet;

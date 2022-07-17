@@ -19,8 +19,8 @@
 
 9. Style
 10. loading circle
-11. button style, change color
-12. retweet in profile
+    <!-- 10. button style, change color -->
+    <!-- 11. retweet in profile -->
 
 <!-- GET /api/me/home-feed -->
 

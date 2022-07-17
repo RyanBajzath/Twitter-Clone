@@ -16,7 +16,7 @@ const Profile = () => {
     fetch(`/api/${profileId}/profile`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setProfile(data.profile);
       });
   }, [profileId]);
