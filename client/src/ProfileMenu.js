@@ -12,7 +12,7 @@ const ProfileMenu = ({ handle }) => {
     fetch(`/api/${handle}/feed`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         const { tweetsById, tweetIds } = data;
         setTweets(tweetsById); //object
         setTweetsIds(tweetIds);
@@ -22,7 +22,7 @@ const ProfileMenu = ({ handle }) => {
   const handleMenuSwitch = (event) => {
     event.preventDefault();
     const id = event.target.id;
-    console.log(id);
+    // console.log(id);
     setButton(id);
     //click the button
     //update the state to value button aka using setState

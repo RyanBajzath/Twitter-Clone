@@ -10,7 +10,7 @@ const TextBox = ({ setPostedTweet }) => {
   const [status, setStatus] = useState("idle");
 
   const handleChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setInput(e.target.value); //get the value of the event using dot notation.
   };
 

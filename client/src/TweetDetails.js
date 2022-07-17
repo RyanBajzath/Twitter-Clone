@@ -52,7 +52,7 @@ const TweetDetails = () => {
       </div>
     );
   }
-  console.log(tweetDetails);
+  // console.log(tweetDetails);
 
   return (
     <div>
