@@ -13,7 +13,7 @@ const TextBox = ({ setPostedTweet }) => {
   };
 
   const handleSubmit = () => {
-    console.log(input);
+    // console.log(input);
     //submit the input
     //contact the api
     const options = {
@@ -42,18 +42,30 @@ const TextBox = ({ setPostedTweet }) => {
   //   console.log(currentUser);
   return (
     <Wrapper>
+      <h2>Home</h2>
       <div>
         <CurrentUserAvatar src={currentUser?.profile?.avatarSrc} />
         <StyledInput
+          placeholder="Whats happening?"
           onChange={(e) => {
             handleChange(e);
             setWordCount(280 - e.target.value.length);
           }}
         />
-        <WordCount>{wordCount}</WordCount>
+        <WordCount
+        // {wordCount < 80 ? style={ color: "red" }:style={ color: "red" }}
+        >
+          {wordCount}
+        </WordCount>
         <StyledButton
           onClick={handleSubmit}
           disabled={wordCount < 0 ? true : false}
+
+          // {
+          //   {wordCount} < 55
+          //     ? (style = { color: "red" })
+          //     : (style = { color: "red" })
+          // }
         >
           {/* Use same tech above for styling */}
           Meow
@@ -64,9 +76,10 @@ const TextBox = ({ setPostedTweet }) => {
 };
 
 const CurrentUserAvatar = styled.img`
-  width: 100px;
+  width: 70px;
   height: auto;
   border-radius: 50%;
+  /* margin-right: 20px; */
 `;
 
 const Wrapper = styled.div`
@@ -74,8 +87,11 @@ const Wrapper = styled.div`
   /* outline: 1px black solid; */
   width: 50vw;
   height: 25vh;
-  box-shadow: 1px 1px;
-  margin-left: 300px;
+  box-shadow: 1px 1px 5px gray;
+  margin-left: 350px;
+  margin-top: 50px;
+  padding-bottom: 3%;
+  padding-left: 5px;
 `;
 const StyledButton = styled.button`
   background-color: purple;
@@ -92,8 +108,10 @@ const WordCount = styled.span`
 `;
 
 const StyledInput = styled.input`
-  height: 15vh;
-  width: 400px;
+  height: 10vh;
+  width: 40vw;
+  /* outline: px; */
   /* margin-top: -100px; */
+  /* position: absolute; */
 `;
 export default TextBox;

@@ -9,13 +9,14 @@ import Profile from "./Profile";
 import Sidebar from "./Sidebar";
 import TweetDetails from "./TweetDetails";
 import Error from "./Error";
+import { CircularProgress } from "@mui/material";
 
 const App = () => {
   const { CurrentUser, status } = useContext(CurrentUserContext);
   // console.log(useContext(CurrentUserContext));
 
   if (status === "loading") {
-    return <div>Loading...test</div>;
+    return <CircularProgress />;
   }
   // if (status === "error") {
   //   return <Error />;

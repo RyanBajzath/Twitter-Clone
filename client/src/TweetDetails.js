@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { Routes, Route, useParams } from "react-router-dom";
 import BigTweet from "./BigTweet";
 import Error from "./Error";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress } from "@mui/material"; //import circle animation
 
 import { FiHeart, FiMessageCircle, FiDownload, FiRepeat } from "react-icons/fi";
 

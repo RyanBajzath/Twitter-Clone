@@ -5,7 +5,12 @@ const Error = () => {
   return (
     <div>
       <FaBomb />
-      <a href="#">You are stuck in a loop</a>
+      <h1>An unknown error has occured</h1>
+      {/* <span>Please try refreshing the page, or </span> */}
+      <span>
+        Please try refreshing the page, or
+        <a href="#"> contact support </a> , if the problem continues.
+      </span>
     </div>
   );
 };

@@ -120,7 +120,7 @@ const Wrapper = styled.div`
   width: 50vw;
   margin-top: 30px;
   /* box-shadow: 10px 10px; */
-  margin-left: 250px;
+  margin-left: 350px;
 `;
 
 const Avatar = styled.img`
@@ -128,6 +128,7 @@ const Avatar = styled.img`
   height: auto;
   border-radius: 50%;
   float: left;
+  margin-right: 15px;
 `;
 
 const Photo = styled.img`

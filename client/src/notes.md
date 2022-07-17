@@ -13,13 +13,14 @@
 
 <!-- 7. Character limit -->
 
-<!-- 8. Error screens -->
+8. Error screens per component
    <!-- 9. Loading states -->
    <!-- 10. Time displays -->
 
 9. Style
-10. loading
-11. button style
+10. loading circle
+11. button style, change color
+12. retweet in profile
 
 <!-- GET /api/me/home-feed -->
 

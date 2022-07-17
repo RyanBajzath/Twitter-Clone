@@ -5,6 +5,7 @@ import ProfileMenu from "./ProfileMenu";
 import { CurrentUserContext } from "./CurrentUserContext";
 import Error from "./Error";
 import styled from "styled-components";
+import { CircularProgress } from "@mui/material";
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
@@ -26,7 +27,7 @@ const Profile = () => {
   // console.log(profile);
   // not really sure how this works but it seems to fix my empty page ... Need to look more into this later.
   if (!profile) {
-    return <div>Loading...</div>;
+    return <CircularProgress />;
   }
 
   return (

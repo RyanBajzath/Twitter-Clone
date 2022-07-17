@@ -80,7 +80,8 @@ const BigTweet = ({ tweet }) => {
 };
 
 const Wrapper = styled.div`
-  outline: red 5px solid;
+  /* outline: red 5px solid; */
+  margin-left: 250px;
 `;
 
 const Avatar = styled.img`
@@ -102,7 +103,7 @@ const SytledStatus = styled.p`
 `;
 
 const StyledDate = styled.p`
-  margin-left: 200px;
+  /* margin-left: 200px; */
 `;
 
 const ButtonWrapper = styled.div`
