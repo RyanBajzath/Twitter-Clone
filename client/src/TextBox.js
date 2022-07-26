@@ -27,13 +27,12 @@ const TextBox = ({ setPostedTweet }) => {
     };
 
     fetch("/api/tweet", options)
-      .then((res) => {
-        if (res.ok) {
-          setPostedTweet(input);
-        }
-        return res.json();
+      .then((res) => res.json())
+      .then((data) => {
+        setPostedTweet(data);
+        setInput("");
+        setWordCount(280);
       })
-      .then((data) => console.log(data)) //why undefined?
       // .then(() => setInput(""))
       .catch((error) => {
         console.log(error);
@@ -51,6 +50,7 @@ const TextBox = ({ setPostedTweet }) => {
       <div>
         <CurrentUserAvatar src={currentUser?.profile?.avatarSrc} />
         <StyledInput
+          value={input}
           placeholder="Whats happening?"
           onChange={(e) => {
             handleChange(e);
@@ -67,7 +67,7 @@ const TextBox = ({ setPostedTweet }) => {
         </WordCount>
         <StyledButton
           onClick={handleSubmit}
-          disabled={wordCount < 0 ? true : false}
+          disabled={wordCount === 280 || wordCount < 0}
 
           // {
           //   {wordCount} < 55
@@ -109,6 +109,9 @@ const StyledButton = styled.button`
   /* margin-left: 45vw; */
   border: none;
   padding: 8px;
+  &:disabled {
+    background-color: gray;
+  }
 `;
 
 const WordCount = styled.span`
